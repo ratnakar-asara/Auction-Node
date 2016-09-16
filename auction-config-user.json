@@ -1,0 +1,52 @@
+{
+  "chainName" : "auction",
+  "KeyValStore" :"keyValStore-auction",
+  "deployWaitTime": "60",
+  "invokeWaitTime": "10",
+  "ca": {
+    "ca_url":"grpc://172.17.0.2:7054"
+  },
+  "peers":[
+    {
+      "name":"vp0",
+      "peer_url":"grpc://172.17.0.3:7051"
+    },
+    {
+      "name":"vp1",
+      "peer_url":"grpc://172.17.0.4:7051"
+    },
+    {
+      "name":"vp2",
+      "peer_url":"grpc://172.17.0.5:7051"
+    },
+    {
+      "name":"vp3",
+      "peer_url":"grpc://172.17.0.6:7051"
+    }
+  ],
+  "users": [
+    {
+      "username":"admin",
+      "secret":"Xurw3yU9zI0l",
+      "affiliation": "bank_a"
+    },
+    {
+      "username":"JohnDoe",
+      "secret":"",
+      "affiliation": "bank_a"
+    }
+  ],
+  "deployRequest":{
+    "chaincodePath":"auction",
+    "functionName":"init",
+    "args":["INITIALIZE"]
+  },
+  "invokeRequest":{
+    "functionName":"PostUser",
+    "args":["100", "USER", "Ashley Hart", "TRD",  "Morrisville Parkway, #216, Morrisville, NC 27560", "9198063535", "ashley@itpeople.com", "SUNTRUST", "0001732345", "0234678"]
+  },
+  "queryRequest":{
+    "functionName":"GetUser",
+    "args":["100"]
+  }
+}

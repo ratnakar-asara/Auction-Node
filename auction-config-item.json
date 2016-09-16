@@ -1,0 +1,52 @@
+{
+  "chainName" : "auction",
+  "KeyValStore" :"keyValStore-auction",
+  "deployWaitTime": "60",
+  "invokeWaitTime": "10",
+  "ca": {
+    "ca_url":"grpc://172.17.0.2:7054"
+  },
+  "peers":[
+    {
+      "name":"vp0",
+      "peer_url":"grpc://172.17.0.3:7051"
+    },
+    {
+      "name":"vp1",
+      "peer_url":"grpc://172.17.0.4:7051"
+    },
+    {
+      "name":"vp2",
+      "peer_url":"grpc://172.17.0.5:7051"
+    },
+    {
+      "name":"vp3",
+      "peer_url":"grpc://172.17.0.6:7051"
+    }
+  ],
+  "users": [
+    {
+      "username":"admin",
+      "secret":"Xurw3yU9zI0l",
+      "affiliation": "bank_a"
+    },
+    {
+      "username":"JohnDoe",
+      "secret":"",
+      "affiliation": "bank_a"
+    }
+  ],
+  "deployRequest":{
+    "chaincodePath":"auction",
+    "functionName":"init",
+    "args":["INITIALIZE"]
+  },
+  "invokeRequest":{
+    "functionName":"PostItem",
+    "args":["1000", "ARTINV", "Shadows by Asppen", "Asppen Messer", "20140202", "Original", "landscape", "Canvas", "15 x 15 in", "art1.png","600", "100"]
+  },
+  "queryRequest":{
+    "functionName":"GetItem",
+    "args":["1000"]
+  }
+}
